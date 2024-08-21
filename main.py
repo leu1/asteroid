@@ -1,28 +1,22 @@
 import pygame
 from constants import *
-
-# def __init__(self):
-#    pygame.init()
-
     
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    clock = pygame.time.Clock() # frames per second
+    dt = 0 # delta time in seconds
 
     while True:
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
     
-        pygame.Surface.fill(screen, (0, 0, 0))
+        screen.fill("black")
         pygame.display.flip()
 
-
-    print("Starting asteroids!")
-    print("Screen width:", SCREEN_WIDTH)
-    print("Screen height:", SCREEN_HEIGHT)
-
-
+        dt = clock.tick(60) / 1000.0 # 60 frames per second 
 if __name__ == "__main__":
     main()
